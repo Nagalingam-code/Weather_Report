@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Weather</title>
+	<link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+	<div id="outline">
+		<header id="top"><span id="w1">ℹ️ About</span>
+			<nav>
+			<a href="#" id="mode" onclick="modechg(); return false;">Dark mode</a>
+			<a href="index.html" id="Home">Home</a></nav>
+		</header>
+		<main>
+		</main>
+		<footer>
+		</footer>
+	</div>
+	<script>
+let isDark = false;
+
+function modechg() {
+  const body = document.body;
+  const header = document.getElementById("top");
+  const footer = document.querySelector("footer");
+
+  if (!isDark) {
+    body.style.backgroundColor = "black";
+    body.style.color = "white";
+    header.style.backgroundColor = "#333";
+    footer.style.backgroundColor = "#222";
+    footer.style.color = "white";
+    document.getElementById("mode").innerText = "Light mode";
+  } else {
+    body.style.backgroundColor = "white";
+    body.style.color = "black";
+    header.style.backgroundColor = "#d4e4f4";
+    footer.style.backgroundColor = "white";
+    footer.style.color = "black";
+    document.getElementById("mode").innerText = "Dark mode";
+  }
+
+  isDark = !isDark;
+}
+
+	</script>
+</body>
+
+</html>

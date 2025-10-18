@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather</title>
+	<link rel="stylesheet" href="Style.css">
+	<link rel="shortcut icon" href="Img/icon.jpg" type="image/x-icon">
+</head>
+<body>
+	<div id="outline">
+		<header id="top"><span id="w1"> 🌤️ Weather Chat Bot</span>
+			<nav>
+				<a href="#" id="mode" onclick="modechg(); return false;">Dark mode</a>
+				<a href="About.html" id="About">About</a>
+			</nav>
+		</header>
+		<main>
+			<div id="tempr">
+				<aside>
+					<div id="txai">
+						<h1 id="loc">🌍No matter</h1>
+						<h1 id="deg">where you go,🌤️</h1>
+						<h2 id="cli">the☁️sky touches</h2>
+						<h2 id="lon">you the same</h2>
+					</div>
+					<div>
+						<img src="./Img/default.png" width="210px" height="210px" id="clo" alt="Hi !!!">
+					</div>
+				</aside>
+			</div>
+			<div id="chatb">
+				<div id="htxt"></div>
+				<img src="bot.png" width="400px">
+			</div>
+		</main>
+		<footer>
+			<input type="text" class="text-input" placeholder="Enter the Location" id="tet">
+			<button class="send-button" onclick="update()"><span id="ch">></span></button>
+		</footer>
+	</div>
+	<script>
+
+		let isDark = false;
+
+		function modechg() {
+			const body = document.body;
+			const header = document.getElementById("top");
+			const footer = document.querySelector("footer");
+
+			if (!isDark) {
+				body.style.backgroundColor = "black";
+				body.style.color = "white";
+				header.style.backgroundColor = "#333";
+				footer.style.backgroundColor = "#222";
+				footer.style.color = "white";
+				document.getElementById("mode").innerText = "Light mode";
+			} else {
+				body.style.backgroundColor = "white";
+				body.style.color = "black";
+				header.style.backgroundColor = "#d4e4f4";
+				footer.style.backgroundColor = "white";
+				footer.style.color = "black";
+				document.getElementById("mode").innerText = "Dark mode";
+			}
+
+			isDark = !isDark;
+		}
+		async function update() {
+			const city = document.getElementById("tet").value;
+
+			const response = await fetch(`http://localhost:5000/get_weather?city=${city}`);
+			const data = await response.json();
+
+			document.getElementById("loc").innerText = `📍${data.city}, ${data.country}`;
+			document.getElementById("deg").innerText = `🌡️${data.temperature} °C`;
+			document.getElementById("cli").innerText = `🌦️${data.condition}`;
+			document.getElementById("lon").innerText = `💨Wind Speed ${data.wind}`;
+			var x = data.condition;
+			x = x.toLowerCase();
+			console.log("Hi " + x)
+			if (x.includes("cloud")) {
+				document.getElementById("clo").src = "./Img/cloudy.png";
+			} else if (x.includes("rain")) {
+				document.getElementById("clo").src = "./Img/rainy.webp";
+			}
+			else if (x.includes("sun")) {
+				document.getElementById("clo").src = "./Img/sunny.webp";
+			}
+			else {
+				document.getElementById("clo").src = "./Img/default.png";
+			}
+		}
+	</script>
+</body>
+
+</html>
