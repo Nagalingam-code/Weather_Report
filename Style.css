@@ -11,12 +11,20 @@
 	font-size: 50px;
 	padding-top: 15px;
 }
-nav{
+
+nav {
 	padding-top: 50px;
 	padding-left: 200px;
 }
-a{text-decoration: none;color: black;margin: 10px;font-size: 20px;}
-a:hover{
+
+a {
+	text-decoration: none;
+	color: black;
+	margin: 10px;
+	font-size: 20px;
+}
+
+a:hover {
 	color: #007bff;
 	font-size: 22px;
 }
@@ -41,10 +49,11 @@ a:hover{
 }
 
 aside {
-	margin:10px;
+	margin: 10px;
 	height: 300px;
 	display: grid;
 	grid-template-columns: 50% 50%;
+	border: 1px solid black;
 }
 
 
@@ -52,11 +61,6 @@ aside {
 
 	height: 350px;
 }
-
-#chatb {
-	height: 350px;
-}
-
 main {
 	display: grid;
 	grid-template-columns: 50% 50%;
@@ -65,9 +69,16 @@ main {
 }
 
 #htxt {
-	height: 180px;
+	height: 980px;
 	padding-left: 60px;
 }
+#chatb {
+	height: 350px;
+	border: 1px solid black;
+	padding-left: 20px;
+	overflow: scroll;
+}
+
 
 #clo {
 	padding-bottom: 60px;
