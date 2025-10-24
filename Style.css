@@ -53,10 +53,7 @@ aside {
 	height: 300px;
 	display: grid;
 	grid-template-columns: 50% 50%;
-	border: 1px solid black;
 }
-
-
 #tempr {
 
 	height: 350px;
@@ -69,12 +66,17 @@ main {
 }
 
 #htxt {
-	height: 980px;
-	padding-left: 60px;
+	height: 100px;
+	padding: 30px;
+}
+#leftchat{
+text-align: left;
+}
+#rightchat{
+	text-align: right;
 }
 #chatb {
 	height: 350px;
-	border: 1px solid black;
 	padding-left: 20px;
 	overflow: scroll;
 }

@@ -1,24 +1,33 @@
 #outline {
-    border: 1px solid black;
+	border: 1px solid black;
 	height: 560px;
 	border-radius: 2%;
 	margin: 15px;
 	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
+
 #w1 {
 	display: inline-block;
 	height: 65px;
 	font-size: 50px;
 	padding-top: 15px;
-    padding-left: 80px;
-    padding-right: 40px;
+	padding-left: 80px;
+	padding-right: 40px;
 }
-nav{
+
+nav {
 	padding-top: 50px;
 	padding-left: 310px;
 }
-a{text-decoration: none;color: black;margin: 10px;font-size: 20px;}
-a:hover{
+
+a {
+	text-decoration: none;
+	color: black;
+	margin: 10px;
+	font-size: 20px;
+}
+
+a:hover {
 	color: #007bff;
 	font-size: 22px;
 }
@@ -28,14 +37,14 @@ a:hover{
 	background-color: #d4e4f4;
 	display: flex;
 	padding-left: 350px;
-    border: 1px solid black;
+	border: 1px solid black;
 }
 
 main {
 	display: grid;
-    border: 1px solid black;
+	border: 1px solid black;
 	grid-template-columns: 50% 50%;
 	padding: 5px 40px;
 	margin-top: 20px;
-    height: 400px;
+	height: 400px;
 }

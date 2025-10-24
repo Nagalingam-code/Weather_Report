@@ -28,13 +28,18 @@
 				</aside>
 			</div>
 			<div id="chatb">
-				<div id="htxt"></div>
 				<img src="Img/bot.png" width="400px">
+				<div id="htxt">
+					<p id="rightchat"></p>
+					<p id="leftchat"></p>
+				</div>				
 			</div>
 		</main>
 		<footer>
+			
 			<input type="text" class="text-input" placeholder="Enter the Location" id="tet">
 			<button class="send-button" onclick="update()"><span id="ch">></span></button>
+			
 		</footer>
 	</div>
 	<script>
@@ -64,9 +69,15 @@
 
 			isDark = !isDark;
 		}
+		document.getElementById("tet").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); 
+    update(); 
+  }
+});
 		async function update() {
 			const city = document.getElementById("tet").value;
-
+			document.getElementById("tet").value = "";
 			const response = await fetch(`http://localhost:5000/get_weather?city=${city}`);
 			const data = await response.json();
 
@@ -74,12 +85,14 @@
 			document.getElementById("deg").innerText = `🌡️${data.temperature} °C`;
 			document.getElementById("cli").innerText = `🌦️${data.condition}`;
 			document.getElementById("lon").innerText = `💨Wind Speed ${data.wind}`;
+			document.getElementById("rightchat").innerText = data.city;
+			document.getElementById("leftchat").innerText = data.Weather_i;
 			var x = data.condition;
 			x = x.toLowerCase();
 			console.log("Hi " + x)
-			if (x.includes("cloud")) {
+			if (x.includes("cloud")|| x.includes("mist")) {
 				document.getElementById("clo").src = "./Img/cloudy.png";
-			} else if (x.includes("rain")) {
+			} else if (x.includes("rain") || x.includes("drizzle") ) {
 				document.getElementById("clo").src = "./Img/rainy.webp";
 			}
 			else if (x.includes("sun")) {
